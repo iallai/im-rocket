@@ -1,0 +1,13 @@
+[package]
+name = "im-rocket"
+version = "0.1.0"
+authors = ["iallai <iallai.info@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rocket = "0.4.5"
+casbin = { version = "1.1.0", default-features = false, features = ["runtime-async-std", "logging"] }
+async-std = { version = "1.5.0", features = ["attributes"] }
+env_logger = "0.7.1"
