@@ -4,6 +4,10 @@ extern crate rocket;
 #[macro_use]
 extern crate rocket_contrib;
 
+#[macro_use]
+extern crate diesel;
+
+mod db;
 mod resources;
 use rocket::Request;
 use rocket_contrib::json::JsonValue;
@@ -17,7 +21,7 @@ fn not_found(req: &Request) -> JsonValue {
     })
 }
 fn main() {
-    let mut rocket = rocket::ignite();
+    let mut rocket = rocket::ignite().manage(db::establish_connection);
     rocket = resources::health::mount(rocket);
     rocket = resources::organization::mount(rocket);
     rocket.register(catchers![not_found]).launch();
