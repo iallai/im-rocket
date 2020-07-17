@@ -1,3 +1,6 @@
+pub mod model;
+pub mod schema;
+
 #[get("/list")]
 fn list() -> &'static str {
     "organizations list"
