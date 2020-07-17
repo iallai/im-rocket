@@ -10,7 +10,7 @@ use rocket_contrib::json::JsonValue;
 
 #[catch(404)]
 fn not_found(req: &Request) -> JsonValue {
-    let message = format!("'{}' 404 not found", req.uri());
+    let message = format!("'{}' was not found", req.uri());
     json!({
         "code":404,
         "message":message
